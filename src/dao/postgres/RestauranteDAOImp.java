@@ -114,20 +114,14 @@ public class RestauranteDAOImp implements RestauranteDAO {
     public boolean remover(int id) {
         abreConexao();
         String sql = "DELETE FROM restaurante WHERE id = " + id;
-        try {
-            int ret = con.createStatement().executeUpdate(sql);
-            return ret > 0;
-        } catch (SQLException ex) {
-            Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         String sql2 = "DELETE FROM endereco WHERE id = " + id;
         try {
-            int ret = con.createStatement().executeUpdate(sql2);
+            int ret = con.createStatement().executeUpdate(sql);
+            int ret2 = con.createStatement().executeUpdate(sql2);
             return ret > 0;
         } catch (SQLException ex) {
             Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        }finally {
             fechaConexao();
         }
         
