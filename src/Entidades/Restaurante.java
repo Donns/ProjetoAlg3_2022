@@ -4,7 +4,7 @@ package Entidades;
  *
  * @author Victor
  */
-public class Restaurante extends Endereco{
+public class Restaurante{
     private String nome;
     private String tel_rest;
     private int id;

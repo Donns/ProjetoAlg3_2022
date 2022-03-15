@@ -50,37 +50,15 @@ public class RestauranteDAOImp implements RestauranteDAO {
         } catch (SQLException ex) {
             Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*if((restaurante.getId_rest() == null) || (restaurante.getId_rest().equals(""))){
-            
-        }*/
         
         id++;
         
-        String sql = "INSERT INTO endereco (id,cidade,rua,bairro,numero,cep) VALUES (?,?,?,?,?,?);";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setInt(1, id);
-            pstm.setString(2, restaurante.getCidade());
-            pstm.setString(3, restaurante.getRua());
-            pstm.setString(4, restaurante.getBairro());
-            pstm.setString(5, restaurante.getNumero());
-            pstm.setString(6, restaurante.getCep());
-            pstm.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        String sql2 = "INSERT INTO restaurante (id, nome, telefone, cidade, rua, bairro, numero, cep) VALUES (?,?,?,?,?,?,?,?);";
+        String sql2 = "INSERT INTO restaurante (id, nome, telefone) VALUES (?,?,?);";
         try {
             PreparedStatement pstm = con.prepareStatement(sql2);
             pstm.setInt(1, id);
             pstm.setString(2, restaurante.getNome());
             pstm.setString(3, restaurante.getTel_rest());
-            pstm.setString(4, restaurante.getCidade());
-            pstm.setString(5, restaurante.getRua());
-            pstm.setString(6, restaurante.getBairro());
-            pstm.setString(7, restaurante.getNumero());
-            pstm.setString(8, restaurante.getCep());
             pstm.execute();
         } catch (SQLException ex) {
             Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,11 +75,6 @@ public class RestauranteDAOImp implements RestauranteDAO {
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, restaurante.getNome());
             pstm.setString(2, restaurante.getTel_rest());
-            pstm.setString(3, restaurante.getCidade());
-            pstm.setString(4, restaurante.getRua());
-            pstm.setString(5, restaurante.getBairro());
-            pstm.setString(6, restaurante.getNumero());
-            pstm.setString(7, restaurante.getCep());
             pstm.execute();
         } catch (SQLException ex) {
             Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,10 +87,8 @@ public class RestauranteDAOImp implements RestauranteDAO {
     public boolean remover(int id) {
         abreConexao();
         String sql = "DELETE FROM restaurante WHERE id = " + id;
-        String sql2 = "DELETE FROM endereco WHERE id = " + id;
         try {
             int ret = con.createStatement().executeUpdate(sql);
-            int ret2 = con.createStatement().executeUpdate(sql2);
             return ret > 0;
         } catch (SQLException ex) {
             Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
@@ -145,12 +116,7 @@ public class RestauranteDAOImp implements RestauranteDAO {
                 Restaurante novo = new Restaurante();
                 novo.setId_rest(rs.getInt("id"));
                 novo.setNome(rs.getString("nome"));
-                novo.setRua(rs.getString("rua"));
                 novo.setTel_rest(rs.getString("telefone"));
-                novo.setCidade(rs.getString("cidade"));
-                novo.setBairro(rs.getString("bairro"));
-                novo.setNumero(rs.getString("numero"));
-                novo.setCep(rs.getString("cep"));
                 
                 ret.add(novo);
             }

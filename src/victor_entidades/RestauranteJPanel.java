@@ -30,7 +30,7 @@ public class RestauranteJPanel extends javax.swing.JPanel {
             dfm.removeRow(0);
         }
         for (Restaurante restaurante : lista) {
-            Object[] linha = new Object[]{restaurante.getId_rest(), restaurante.getNome(), restaurante.getTel_rest(), restaurante.getCidade(), restaurante.getRua(), restaurante.getBairro(), restaurante.getNumero(), restaurante.getCep()};
+            Object[] linha = new Object[]{restaurante.getId_rest(), restaurante.getNome(), restaurante.getTel_rest()};
             dfm.addRow(linha);
         }
     }
@@ -47,20 +47,9 @@ public class RestauranteJPanel extends javax.swing.JPanel {
         jLabelId = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
         jLabelTelefone = new javax.swing.JLabel();
-        jLabelEndereco = new javax.swing.JLabel();
-        jLabelCidade = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldTelefone = new javax.swing.JTextField();
-        jTextFieldCidade = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextFieldBairro = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextFieldRua = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextFieldNumero = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextFieldCEP = new javax.swing.JTextField();
         jButtonSalvar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -76,20 +65,8 @@ public class RestauranteJPanel extends javax.swing.JPanel {
 
         jLabelTelefone.setText("Telefone");
 
-        jLabelEndereco.setText("Endereço");
-
-        jLabelCidade.setText("Cidade");
-
         jTextFieldId.setEditable(false);
         jTextFieldId.setEnabled(false);
-
-        jLabel6.setText("Rua");
-
-        jLabel7.setText("Bairro");
-
-        jLabel8.setText("Número");
-
-        jLabel9.setText("CEP");
 
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,17 +84,17 @@ public class RestauranteJPanel extends javax.swing.JPanel {
 
         jTableTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Telefone", "Cidade", "Rua", "Bairro", "Número", "CEP"
+                "Id", "Nome", "Telefone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -146,58 +123,35 @@ public class RestauranteJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabelTelefone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNome)
-                                    .addComponent(jLabelId))
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldNome)
-                                    .addComponent(jTextFieldId))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabelTelefone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabelEndereco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelCidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldRua, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldCEP, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                .addGap(35, 35, 35))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelNome)
+                            .addComponent(jLabelId))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNome)
+                            .addComponent(jTextFieldId))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonEditar)
                     .addComponent(Excluir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonCancelar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 946, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(346, 346, 346))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,33 +168,20 @@ public class RestauranteJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTelefone)
                     .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEndereco)
-                    .addComponent(jLabelCidade)
-                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSalvar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonSalvar)
                     .addComponent(jButtonCancelar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addGap(47, 47, 47)
                         .addComponent(jButtonEditar)
-                        .addGap(28, 28, 28)
+                        .addGap(18, 18, 18)
                         .addComponent(Excluir)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                         .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -250,23 +191,13 @@ public class RestauranteJPanel extends javax.swing.JPanel {
         jTextFieldId.setText("");
         jTextFieldNome.setText("");
         jTextFieldTelefone.setText("");
-        jTextFieldRua.setText("");
-        jTextFieldCidade.setText("");
-        jTextFieldBairro.setText("");
-        jTextFieldNumero.setText("");
-        jTextFieldCEP.setText("");
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
         Restaurante novo = new Restaurante();
         novo.setNome(jTextFieldNome.getText());
-        novo.setCidade(jTextFieldCidade.getText());
         novo.setTel_rest(jTextFieldTelefone.getText());
-        novo.setRua(jTextFieldRua.getText());
-        novo.setBairro(jTextFieldBairro.getText());
-        novo.setNumero(jTextFieldNumero.getText());
-        novo.setCep(jTextFieldCEP.getText());
 
         try {
             int id = Integer.parseInt(jTextFieldId.getText());
@@ -283,18 +214,12 @@ public class RestauranteJPanel extends javax.swing.JPanel {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
-        int count = 1;
         
         if (jTableTabela.getSelectedRowCount() == 1) {
             int linha = jTableTabela.getSelectedRow();
             jTextFieldId.setText(jTableTabela.getValueAt(linha, 0) + "");
             jTextFieldNome.setText(jTableTabela.getValueAt(linha, 1) + "");
             jTextFieldTelefone.setText(jTableTabela.getValueAt(linha, 2) + "");
-            jTextFieldCidade.setText(jTableTabela.getValueAt(linha, 3) + "");
-            jTextFieldRua.setText(jTableTabela.getValueAt(linha, 4) + "");
-            jTextFieldBairro.setText(jTableTabela.getValueAt(linha, 5) + "");
-            jTextFieldNumero.setText(jTableTabela.getValueAt(linha, 6) + "");
-            jTextFieldCEP.setText(jTableTabela.getValueAt(linha, 7) + "");
         } else {
             JOptionPane.showMessageDialog(jTableTabela, "Selecione somente 1 linha.");
         }
@@ -321,24 +246,13 @@ public class RestauranteJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonSalvar;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelCidade;
-    private javax.swing.JLabel jLabelEndereco;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableTabela;
-    private javax.swing.JTextField jTextFieldBairro;
-    private javax.swing.JTextField jTextFieldCEP;
-    private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldNumero;
-    private javax.swing.JTextField jTextFieldRua;
     private javax.swing.JTextField jTextFieldTelefone;
     // End of variables declaration//GEN-END:variables
 }

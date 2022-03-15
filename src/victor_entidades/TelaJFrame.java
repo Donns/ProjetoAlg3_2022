@@ -27,6 +27,7 @@ public class TelaJFrame extends javax.swing.JFrame {
         jMenu = new javax.swing.JMenu();
         jMenuItemRestaurante = new javax.swing.JMenuItem();
         jMenuItemReserva = new javax.swing.JMenuItem();
+        jMenuItemEndereco = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,14 @@ public class TelaJFrame extends javax.swing.JFrame {
             }
         });
         jMenu.add(jMenuItemReserva);
+
+        jMenuItemEndereco.setText("Endereço");
+        jMenuItemEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEnderecoActionPerformed(evt);
+            }
+        });
+        jMenu.add(jMenuItemEndereco);
 
         jMenuBar.add(jMenu);
 
@@ -83,6 +92,14 @@ public class TelaJFrame extends javax.swing.JFrame {
         jPanelConteudo.setVisible(false);
         jPanelConteudo.setVisible(true);
     }//GEN-LAST:event_jMenuItemReservaActionPerformed
+
+    private void jMenuItemEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEnderecoActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new EnderecoJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemEnderecoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,6 +139,7 @@ public class TelaJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JMenuItem jMenuItemEndereco;
     private javax.swing.JMenuItem jMenuItemReserva;
     private javax.swing.JMenuItem jMenuItemRestaurante;
     private javax.swing.JPanel jPanelConteudo;

@@ -1,15 +1,34 @@
 package Entidades;
 
-/**
+/*
  *
- * @author Victor
+ * @author Ana Leticia
  */
 public class Endereco {
+    private String cpf;
+    private String nome;
+    private String cep;
     private String cidade;
     private String bairro;
     private String rua;
     private String numero;
-    private String cep;
+    
+    
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getCidade() {
         return cidade;
@@ -50,6 +69,4 @@ public class Endereco {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-
-    
 }

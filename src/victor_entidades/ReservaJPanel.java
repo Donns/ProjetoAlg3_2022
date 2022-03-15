@@ -200,10 +200,30 @@ public class ReservaJPanel extends javax.swing.JPanel {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
+        if (jTableTabela.getSelectedRowCount() == 1) {
+            int linha = jTableTabela.getSelectedRow();
+            jTextFieldCPF.setText(jTableTabela.getValueAt(linha, 0) + "");
+            jTextFieldCPF.setEditable(false);
+            jTextFieldHora.setText(jTableTabela.getValueAt(linha, 1) + "");
+            jTextFieldPreco.setText(jTableTabela.getValueAt(linha, 2) + "");
+        } else {
+            JOptionPane.showMessageDialog(jTableTabela, "Selecione somente 1 linha.");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         // TODO add your handling code here:
+        if (jTableTabela.getSelectedRowCount() >= 1) {
+            int[] linhas = jTableTabela.getSelectedRows();
+            for (int i = linhas.length - 1; i >= 0; i--) {
+                String cpf = (jTableTabela.getValueAt(linhas[i], 0) + "");
+                dao.remover(cpf);
+            }
+            JOptionPane.showMessageDialog(jTableTabela, "Removido com sucesso!");
+            atualizaTabela();
+        } else {
+            JOptionPane.showMessageDialog(jTableTabela, "Selecione ao menos 1 linha.");
+        }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
 
