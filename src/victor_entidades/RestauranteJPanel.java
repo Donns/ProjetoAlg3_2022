@@ -12,7 +12,7 @@ import dao.RestauranteDAO;
  */
 public class RestauranteJPanel extends javax.swing.JPanel {
 
-    private RestauranteDAO dao = DAOFactory.createDAO();
+    private RestauranteDAO dao = DAOFactory.createRestDAO();
 
     /**
      * Creates new form RestauranteJPanel

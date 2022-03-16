@@ -11,7 +11,7 @@ import dao.EnderecoDAO;
  */
 public class EnderecoJPanel extends javax.swing.JPanel {
     
-     private EnderecoDAO dao = DAOFactory3.createDAO();
+     private EnderecoDAO dao = DAOFactory.createEndDAO();
 
     /**
      * Creates new form EnderecoJPanel

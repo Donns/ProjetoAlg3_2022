@@ -5,6 +5,7 @@ package Entidades;
  * @author Victor
  */
 public class Financeiro {
+    private int id;
     private float pagto_fornec;
     private float pagto_func;
     private float vendas;
@@ -31,6 +32,22 @@ public class Financeiro {
 
     public void setGanho_total(float ganho_total) {
         this.vendas = ganho_total;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(float vendas) {
+        this.vendas = vendas;
     }
     
 }

@@ -11,7 +11,7 @@ import dao.ReservaDAO;
  */
 public class ReservaJPanel extends javax.swing.JPanel {
     
-    private ReservaDAO dao = DAOFactory2.createDAO();
+    private ReservaDAO dao = DAOFactory.createReservaDAO();
 
     /**
      * Creates new form ReservaJPanel
@@ -194,6 +194,7 @@ public class ReservaJPanel extends javax.swing.JPanel {
         }
 
         JOptionPane.showMessageDialog(jButtonSalvar, "Salvo com sucesso!");
+        jTextFieldCPF.setEditable(true);
         atualizaTabela();
         jButtonCancelarActionPerformed(evt);
     }//GEN-LAST:event_jButtonSalvarActionPerformed

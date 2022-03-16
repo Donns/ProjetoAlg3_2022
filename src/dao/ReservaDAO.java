@@ -12,7 +12,7 @@ public interface ReservaDAO {
     
     public void atualizar(Reserva reserva);
     
-    public boolean remover(String cpf_cli);
+    public boolean remover(String id);
     
     public List<Reserva> listar();
     
