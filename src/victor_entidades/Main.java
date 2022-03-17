@@ -1,5 +1,7 @@
 package victor_entidades;
 
+
+
 /**
  *
  * @author Victor
@@ -12,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
         PRestauranteJFrame tela = new PRestauranteJFrame();
         tela.setVisible(true);
+        
     }
     
 }

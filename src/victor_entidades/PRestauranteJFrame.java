@@ -38,7 +38,7 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
         jMenuItemReserva = new javax.swing.JMenuItem();
         jMenuItemEndereco = new javax.swing.JMenuItem();
         jMenuItemFornecedora = new javax.swing.JMenuItem();
-        jMenuFinanceiro = new javax.swing.JMenu();
+        jMenuItemFinanceiro = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -117,10 +117,15 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
         });
         jMenuRestaurante.add(jMenuItemFornecedora);
 
-        jMenuBar.add(jMenuRestaurante);
+        jMenuItemFinanceiro.setText("Financeiro");
+        jMenuItemFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFinanceiroActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemFinanceiro);
 
-        jMenuFinanceiro.setText("Financeiro");
-        jMenuBar.add(jMenuFinanceiro);
+        jMenuBar.add(jMenuRestaurante);
 
         setJMenuBar(jMenuBar);
 
@@ -213,6 +218,14 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
         jPanelConteudo.setVisible(true);
     }//GEN-LAST:event_jMenuItemFornecedoraActionPerformed
 
+    private void jMenuItemFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFinanceiroActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new FinanceiroJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemFinanceiroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -250,11 +263,11 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JMenu jMenuFinanceiro;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemEndereco;
     private javax.swing.JMenuItem jMenuItemEstacionamento;
+    private javax.swing.JMenuItem jMenuItemFinanceiro;
     private javax.swing.JMenuItem jMenuItemFornecedora;
     private javax.swing.JMenuItem jMenuItemFuncionarios;
     private javax.swing.JMenuItem jMenuItemReserva;

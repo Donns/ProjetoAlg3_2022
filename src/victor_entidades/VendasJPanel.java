@@ -40,7 +40,7 @@ public class VendasJPanel extends javax.swing.JPanel {
         }
         
         for (Venda venda : lista){
-            Object[] linha = new Object[]{venda.getCpf(), venda.getNome(), venda.getCod_pedido(), venda.isEstacionou(), venda.isReservou(), venda.getGorjeta(), venda.getCouvert(), venda.isStatus()};
+            Object[] linha = new Object[]{venda.getCpf(), venda.getNome(), venda.getCod_pedido(), venda.isEstacionou(), venda.isReservou(), venda.getGorjeta(), venda.getCouvert(), venda.isStatus(), venda.getPedido()};
             dfm.addRow(linha);
             //JOptionPane.showMessageDialog(jButtonSalvar, linha);
         }
@@ -53,6 +53,7 @@ public class VendasJPanel extends javax.swing.JPanel {
         jCheckBoxStatus.setSelected(false);
         GorjetaTextField.setText("");
         CouvertTextField.setText("");
+        jTextFieldPedido.setText("");
     }
     
     
@@ -89,6 +90,8 @@ public class VendasJPanel extends javax.swing.JPanel {
         jCheckBoxEstaciona = new javax.swing.JCheckBox();
         jCheckBoxReserva = new javax.swing.JCheckBox();
         jCheckBoxStatus = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldPedido = new javax.swing.JTextField();
 
         jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,26 +173,26 @@ public class VendasJPanel extends javax.swing.JPanel {
 
         jTableVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CPF", "Nome", "Código", "Estacionamento", "Reserva", "Gorjeta", "Couvert", "Status"
+                "CPF", "Nome", "Código", "Estacionamento", "Reserva", "Gorjeta", "Couvert", "Status", "Pedido"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Float.class, java.lang.Float.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Float.class, java.lang.Float.class, java.lang.Boolean.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true, true
+                false, true, true, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -247,6 +250,8 @@ public class VendasJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Pedido");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,13 +267,6 @@ public class VendasJPanel extends javax.swing.JPanel {
                             .addComponent(NomeLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CodTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(CouvertTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                                        .addComponent(GorjetaTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(NomeTextField)
@@ -281,7 +279,19 @@ public class VendasJPanel extends javax.swing.JPanel {
                                 .addComponent(CPFLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(CpfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(114, 114, 114))))
+                                .addGap(114, 114, 114))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CodTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(CouvertTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                                            .addComponent(GorjetaTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(46, 46, 46)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextFieldPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,7 +341,9 @@ public class VendasJPanel extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GorjetaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NascLabel))
+                    .addComponent(NascLabel)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CouvertTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,6 +393,7 @@ public class VendasJPanel extends javax.swing.JPanel {
         jCheckBoxStatus.setSelected(false);
         GorjetaTextField.setText("");
         CouvertTextField.setText("");
+        jTextFieldPedido.setText("");
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jCheckBoxEstacionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEstacionaActionPerformed
@@ -400,6 +413,7 @@ public class VendasJPanel extends javax.swing.JPanel {
             venda.setReservou(jCheckBoxReserva.isSelected());
             venda.setStatus(jCheckBoxStatus.isSelected());
             venda.setGorjeta(Float.parseFloat(GorjetaTextField.getText()));
+            venda.setPedido(Float.parseFloat(jTextFieldPedido.getText()));
             daoV.editar(venda);
         }catch(NumberFormatException e){
             venda.setCpf(CpfTextField.getText());
@@ -410,6 +424,7 @@ public class VendasJPanel extends javax.swing.JPanel {
             venda.setReservou(jCheckBoxEstaciona.isSelected());
             venda.setStatus(jCheckBoxStatus.isSelected());
             venda.setGorjeta(Float.parseFloat(GorjetaTextField.getText()));
+            venda.setPedido(Float.parseFloat(jTextFieldPedido.getText()));
             daoV.adicionar(venda);
         }
         JOptionPane.showMessageDialog(jButtonSalvar, "Salvo com sucesso!");
@@ -434,6 +449,7 @@ public class VendasJPanel extends javax.swing.JPanel {
             jCheckBoxStatus.setSelected(Boolean.valueOf(jTableVendas.getValueAt(linha, 7)+""));
             GorjetaTextField.setText(jTableVendas.getValueAt(linha, 5)+"");
             CouvertTextField.setText(jTableVendas.getValueAt(linha, 6)+"");
+            jTextFieldPedido.setText(jTableVendas.getValueAt(linha, 8)+"");
         }else{
             JOptionPane.showMessageDialog(jButtonSalvar, "Selecione apenas uma linha!");
         }
@@ -470,10 +486,12 @@ public class VendasJPanel extends javax.swing.JPanel {
             venda.setGorjeta(Float.parseFloat(jTableVendas.getValueAt(linha, 5)+""));
             venda.setCouvert(Float.parseFloat(jTableVendas.getValueAt(linha, 6)+""));
             venda.setStatus(Boolean.valueOf(jTableVendas.getValueAt(linha, 7)+""));
+            venda.setPedido(Float.parseFloat(jTableVendas.getValueAt(linha, 8)+""));
 
             if (!venda.isStatus()){
                 double gorjeta = Float.parseFloat(jTableVendas.getValueAt(linha, 5)+"");
                 double couvert = Float.parseFloat(jTableVendas.getValueAt(linha, 6)+"");
+                double pedido = Float.parseFloat(jTableVendas.getValueAt(linha, 8)+"");
                 double estacionamento = 0;
                 double reserva = 0;
                 if (Boolean.valueOf(jTableVendas.getValueAt(linha, 3)+"")){
@@ -482,7 +500,7 @@ public class VendasJPanel extends javax.swing.JPanel {
                 if (Boolean.valueOf(jTableVendas.getValueAt(linha, 4)+"")){
                     reserva = daoV.precoReserva(venda.getCpf());
                 }
-                double contaFechada = gorjeta + couvert + estacionamento + reserva; // estacionamento = 5; reserva = 12 (mudar depois)
+                double contaFechada = gorjeta + couvert + estacionamento + reserva + pedido; // estacionamento = 5; reserva = 12 (mudar depois)
                 NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
                 JOptionPane.showMessageDialog(jButtonSalvar, "Total à pagar: " + dinheiro.format(contaFechada));
 
@@ -533,9 +551,11 @@ public class VendasJPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBoxEstaciona;
     private javax.swing.JCheckBox jCheckBoxReserva;
     private javax.swing.JCheckBox jCheckBoxStatus;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableClientes;
     private javax.swing.JTable jTableVendas;
+    private javax.swing.JTextField jTextFieldPedido;
     // End of variables declaration//GEN-END:variables
 }

@@ -188,7 +188,7 @@ public class VendaDAOImpl implements VendaDAO{
         int fidelidade = clienteExiste(venda);
         abreConexao();
         
-        String sqlV = "INSERT INTO Venda (cpf, nome, cod_pedido, estacionamento, reserva,status, gorjeta, couvert) VALUES (?, ?, ?, ?, ?, ?, ?,?);";
+        String sqlV = "INSERT INTO Venda (cpf, nome, cod_pedido, estacionamento, reserva,status, gorjeta, couvert,pedido) VALUES (?, ?, ?, ?, ?, ?, ?,?,?);";
         String atualizaFidelidade = "UPDATE Cliente Set qtd_vendas = ? WHERE cpf = ?";
        
         try{
@@ -216,6 +216,7 @@ public class VendaDAOImpl implements VendaDAO{
             pstmP.setBoolean(6, venda.isStatus());
             pstmP.setFloat(7, venda.getGorjeta());
             pstmP.setFloat(8, venda.getCouvert());
+            pstmP.setFloat(9, venda.getPedido());
             pstmP.execute();
 
         } catch (SQLException ex) {
@@ -269,6 +270,7 @@ public class VendaDAOImpl implements VendaDAO{
                 nova.setGorjeta(rs.getFloat("gorjeta"));
                 nova.setCouvert(rs.getFloat("couvert"));
                 nova.setStatus(rs.getBoolean("status"));
+                nova.setPedido(rs.getFloat("pedido"));
                 ret.add(nova);   
             }
         } catch (SQLException ex) {

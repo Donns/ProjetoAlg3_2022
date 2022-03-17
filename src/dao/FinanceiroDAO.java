@@ -8,14 +8,16 @@ import java.util.List;
  * @author Victor
  */
 public interface FinanceiroDAO {
-    public void adicionar(Financeiro financeiro);
+    public void iniciar();
     
-    public void atualizar(Financeiro financeiro);
+    public float despesa_fun();
     
-    public boolean remover(int id);
+    public float despesa_forn();
     
-    public List<Financeiro> listar();
+    public float caixa();
     
-    public void editar(Financeiro financeiro);
+    public float atualizaCaixaFun();
+    
+    public float atualizaCaixaFor();
     
 }

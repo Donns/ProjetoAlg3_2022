@@ -15,8 +15,10 @@ import dao.postgres.VendaDAOImpl;
 import dao.ReservaDAO;
 import dao.postgres.ReservaDAOImp;
 import dao.EnderecoDAO;
+import dao.FinanceiroDAO;
 import dao.FornecedoraDAO;
 import dao.postgres.EnderecoDAOImp;
+import dao.postgres.FinanceiroDAOImp;
 import dao.postgres.FornecedoraDAOimp;
 
 /**
@@ -24,6 +26,10 @@ import dao.postgres.FornecedoraDAOimp;
  * @author Victor
  */
 public class DAOFactory {
+    
+    public static FinanceiroDAO createFinanDAO(){
+        return new FinanceiroDAOImp();
+    }
     
     public static RestauranteDAO createRestDAO(){
         return new RestauranteDAOImp();

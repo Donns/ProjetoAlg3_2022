@@ -7,6 +7,15 @@ public class Venda {
     private boolean estacionou;
     private boolean reservou;
     private boolean status;
+    private float pedido;
+
+    public float getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(float pedido) {
+        this.pedido = pedido;
+    }
 
     public boolean isStatus() {
         return status;

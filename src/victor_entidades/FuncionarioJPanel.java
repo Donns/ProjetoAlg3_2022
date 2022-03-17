@@ -179,7 +179,7 @@ public class FuncionarioJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "CPF", "Nome", "Telefone", "Aniversário", "Fidelidade"
+                "CPF", "Nome", "Telefone", "Aniversário", "Salario"
             }
         ) {
             Class[] types = new Class [] {
