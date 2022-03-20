@@ -9,7 +9,6 @@ import java.util.List;
 public interface EnderecoDAO {
     public void adicionar(Endereco endereco);
     
-    public void atualizar(Endereco endereco);
     
     public boolean remover(String cpf);
     

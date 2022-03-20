@@ -57,25 +57,6 @@ public class EnderecoDAOImp implements EnderecoDAO{
         }
     }
 
-    @Override
-    public void atualizar(Endereco endereco) {
-        abreConexao();
-        String sql = "UPDATE endereco SET nome = : WHERE cpf = ?;";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, endereco.getNome());
-            pstm.setString(2, endereco.getCidade());
-            pstm.setString(3, endereco.getRua());
-            pstm.setString(4, endereco.getBairro());
-            pstm.setString(5, endereco.getNumero());
-            pstm.setString(6, endereco.getCep());
-            pstm.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(EnderecoDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            fechaConexao();
-        }
-    }
 
     @Override
     public boolean remover(String cpf) {

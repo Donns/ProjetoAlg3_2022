@@ -53,23 +53,7 @@ public class ReservaDAOImp implements ReservaDAO{
         }
     }
 
-    @Override
-    public void atualizar(Reserva reserva) {
-        abreConexao();
-        String sql = "UPDATE reserva SET preco_reserva = : WHERE cpf_cli = ?;";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, reserva.getCpf_cli());
-            pstm.setFloat(2, reserva.getPreco_reserva());
-            pstm.setString(3, reserva.getHora_entrada());
-            pstm.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(ReservaDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            fechaConexao();
-        }
-    }
-
+   
     @Override
     public boolean remover(String cpf_cli) {
         abreConexao();

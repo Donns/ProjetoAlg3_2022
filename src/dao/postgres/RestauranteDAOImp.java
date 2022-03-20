@@ -68,22 +68,6 @@ public class RestauranteDAOImp implements RestauranteDAO {
     }
 
     @Override
-    public void atualizar(Restaurante restaurante) {
-        abreConexao();
-        String sql = "UPDATE restaurante SET nome = : WHERE id = ?;";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, restaurante.getNome());
-            pstm.setString(2, restaurante.getTel_rest());
-            pstm.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(RestauranteDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            fechaConexao();
-        }
-    }
-
-    @Override
     public boolean remover(int id) {
         abreConexao();
         String sql = "DELETE FROM restaurante WHERE id = " + id;

@@ -9,7 +9,6 @@ import java.util.List;
 public interface RestauranteDAO {
     public void adicionar(Restaurante restaurante);
     
-    public void atualizar(Restaurante restaurante);
     
     public boolean remover(int id);
     

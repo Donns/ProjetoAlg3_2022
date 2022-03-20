@@ -69,24 +69,6 @@ public class FornecedoraDAOimp implements FornecedoraDAO{
         }
     }
 
-    @Override
-    public void atualizar(Fornecedora fornecedora) {
-        abreConexao();
-        String sql = "UPDATE fornecedora SET nome = : WHERE id = ?;";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, fornecedora.getNome());
-            pstm.setString(2, fornecedora.getTel());
-            pstm.setString(3, fornecedora.getCnpj());
-            pstm.setString(4, fornecedora.getProdutos());
-            pstm.setFloat(5, fornecedora.getValor_total_produtos());
-            pstm.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(FornecedoraDAOimp.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            fechaConexao();
-        }
-    }
 
     @Override
     public boolean remover(int id) {

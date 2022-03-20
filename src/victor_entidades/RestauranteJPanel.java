@@ -214,7 +214,7 @@ public class RestauranteJPanel extends javax.swing.JPanel {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
-        
+
         if (jTableTabela.getSelectedRowCount() == 1) {
             int linha = jTableTabela.getSelectedRow();
             jTextFieldId.setText(jTableTabela.getValueAt(linha, 0) + "");

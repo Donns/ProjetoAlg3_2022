@@ -1,0 +1,284 @@
+CREATE TABLE IF NOT EXISTS public.bebida
+(
+    bebida_id integer NOT NULL,
+    tipo_bebida character varying COLLATE pg_catalog."default",
+    marca_bebida character varying COLLATE pg_catalog."default",
+    litro_bebida numeric,
+    CONSTRAINT bebida_id PRIMARY KEY (bebida_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.bebida
+    OWNER to postgres;
+-----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.cardapio
+(
+    prato_id integer NOT NULL,
+    nome_prato character varying COLLATE pg_catalog."default",
+    descricao character varying COLLATE pg_catalog."default",
+    classificacao_id integer,
+    valor numeric,
+    CONSTRAINT prato_id PRIMARY KEY (prato_id),
+    CONSTRAINT prato_classificacao_fk FOREIGN KEY (classificacao_id)
+        REFERENCES public.classificacao (classificacao_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cardapio
+    OWNER to postgres;
+----------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.classificacao
+(
+    classificacao_id integer NOT NULL,
+    nome_classificacao character varying COLLATE pg_catalog."default",
+    CONSTRAINT classificacao_id PRIMARY KEY (classificacao_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.classificacao
+    OWNER to postgres;
+----------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.cliente
+(
+    qtd_vendas integer,
+    cpf character varying COLLATE pg_catalog."default" NOT NULL,
+    nome character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT cliente_pkey PRIMARY KEY (cpf, nome),
+    CONSTRAINT cliente_cpf_nome_fkey FOREIGN KEY (nome, cpf)
+        REFERENCES public.pessoa (nome, cpf) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cliente
+    OWNER to postgres;
+----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.comanda
+(
+    comanda_id integer NOT NULL,
+    nome_prato character varying COLLATE pg_catalog."default",
+    nome_bebida character varying COLLATE pg_catalog."default",
+    CONSTRAINT pk_comanda_id PRIMARY KEY (comanda_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.comanda
+    OWNER to postgres;
+-------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.endereco
+(
+    cpf character varying COLLATE pg_catalog."default",
+    nome character varying COLLATE pg_catalog."default",
+    cidade character varying COLLATE pg_catalog."default" NOT NULL,
+    rua character varying COLLATE pg_catalog."default" NOT NULL,
+    bairro character varying COLLATE pg_catalog."default" NOT NULL,
+    numero character varying COLLATE pg_catalog."default" NOT NULL,
+    cep character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pk_enderco PRIMARY KEY (cidade, rua, bairro, numero, cep)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.endereco
+    OWNER to postgres;
+--------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.entrega
+(
+    entrega_id integer NOT NULL,
+    nome_prato character varying COLLATE pg_catalog."default" NOT NULL,
+    endereco character varying COLLATE pg_catalog."default" NOT NULL,
+    cpf_cli character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT entrega_id PRIMARY KEY (entrega_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.entrega
+    OWNER to postgres;
+-----------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.estacionamento
+(
+    cpf character varying COLLATE pg_catalog."default",
+    nome character varying COLLATE pg_catalog."default",
+    cod_vaga integer,
+    preco numeric,
+    hora_entrada character varying COLLATE pg_catalog."default",
+    hora_saida character varying COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.estacionamento
+    OWNER to postgres;
+-------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.estoque
+(
+    produto_id integer NOT NULL,
+    nome_produto character varying COLLATE pg_catalog."default",
+    quantidade integer,
+    CONSTRAINT produto_id PRIMARY KEY (produto_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.estoque
+    OWNER to postgres;
+---------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.fidelidade
+(
+    cpf_cli character varying COLLATE pg_catalog."default" NOT NULL,
+    qtd_compras integer,
+    desconto numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.fidelidade
+    OWNER to postgres;
+---------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.financeiro
+(
+    pagto_fun numeric,
+    pagto_for numeric,
+    dinheiro_caixa numeric,
+    liquido numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.financeiro
+    OWNER to postgres;
+------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.fornecedora
+(
+    id integer,
+    nome character varying COLLATE pg_catalog."default",
+    telefone character varying COLLATE pg_catalog."default",
+    cnpj character varying COLLATE pg_catalog."default",
+    produtos character varying COLLATE pg_catalog."default",
+    valor_total_produtos numeric(20,2)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.fornecedora
+    OWNER to postgres;
+------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.funcionario
+(
+    salario numeric,
+    cpf character varying COLLATE pg_catalog."default",
+    nome character varying COLLATE pg_catalog."default",
+    CONSTRAINT funcionario_cpf_nome_fkey FOREIGN KEY (nome, cpf)
+        REFERENCES public.pessoa (nome, cpf) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.funcionario
+    OWNER to postgres;
+-----------------------------------
+
+CREATE TABLE IF NOT EXISTS public.pessoa
+(
+    nome character varying COLLATE pg_catalog."default" NOT NULL,
+    cpf character varying COLLATE pg_catalog."default" NOT NULL,
+    telefone character varying COLLATE pg_catalog."default",
+    data_nasc character varying COLLATE pg_catalog."default",
+    cidade character varying COLLATE pg_catalog."default",
+    rua character varying COLLATE pg_catalog."default",
+    bairro character varying COLLATE pg_catalog."default",
+    numero character varying COLLATE pg_catalog."default",
+    cep character varying COLLATE pg_catalog."default",
+    CONSTRAINT pk_pessoa PRIMARY KEY (cpf, nome),
+    CONSTRAINT fk_enderco FOREIGN KEY (cidade, numero, rua, bairro, cep)
+        REFERENCES public.endereco (cidade, numero, rua, bairro, cep) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.pessoa
+    OWNER to postgres;
+---------------------------------
+
+CREATE TABLE IF NOT EXISTS public.produto
+(
+    produto_id integer NOT NULL,
+    nome_produto character varying COLLATE pg_catalog."default",
+    valor_produto numeric,
+    CONSTRAINT pk_produto PRIMARY KEY (produto_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.produto
+    OWNER to postgres;
+----------------------------------
+
+CREATE TABLE IF NOT EXISTS public.reserva
+(
+    cpf_cli character varying COLLATE pg_catalog."default",
+    preco_reserva numeric(5,2),
+    hora_entrada character varying COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.reserva
+    OWNER to postgres;
+-------------------------------
+
+CREATE TABLE IF NOT EXISTS public.restaurante
+(
+    id integer,
+    nome character varying COLLATE pg_catalog."default",
+    telefone character varying COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.restaurante
+    OWNER to postgres;
+-----------------------------
+
+CREATE TABLE IF NOT EXISTS public.venda
+(
+    cpf character varying COLLATE pg_catalog."default",
+    nome character varying COLLATE pg_catalog."default",
+    cod_pedido integer,
+    estacionamento boolean,
+    reserva boolean,
+    status boolean,
+    gorjeta numeric,
+    couvert numeric,
+    pedido numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.venda
+    OWNER to postgres;

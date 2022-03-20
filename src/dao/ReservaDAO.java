@@ -10,7 +10,6 @@ import java.util.List;
 public interface ReservaDAO {
     public void adicionar(Reserva reserva);
     
-    public void atualizar(Reserva reserva);
     
     public boolean remover(String id);
     

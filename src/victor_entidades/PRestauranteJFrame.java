@@ -39,6 +39,14 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
         jMenuItemEndereco = new javax.swing.JMenuItem();
         jMenuItemFornecedora = new javax.swing.JMenuItem();
         jMenuItemFinanceiro = new javax.swing.JMenuItem();
+        jMenuItemBebida = new javax.swing.JMenuItem();
+        jMenuItemCardapio = new javax.swing.JMenuItem();
+        jMenuItemClassificacao = new javax.swing.JMenuItem();
+        jMenuItemComanda = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemEstoque = new javax.swing.JMenuItem();
+        jMenuItemFidelidade = new javax.swing.JMenuItem();
+        jMenuItemProduto = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -124,6 +132,70 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
             }
         });
         jMenuRestaurante.add(jMenuItemFinanceiro);
+
+        jMenuItemBebida.setText("Bebida");
+        jMenuItemBebida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBebidaActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemBebida);
+
+        jMenuItemCardapio.setText("Cardapio");
+        jMenuItemCardapio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCardapioActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemCardapio);
+
+        jMenuItemClassificacao.setText("Classificação");
+        jMenuItemClassificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemClassificacaoActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemClassificacao);
+
+        jMenuItemComanda.setText("Comanda");
+        jMenuItemComanda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemComandaActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemComanda);
+
+        jMenuItem2.setText("Entrega");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItem2);
+
+        jMenuItemEstoque.setText("Estoque");
+        jMenuItemEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEstoqueActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemEstoque);
+
+        jMenuItemFidelidade.setText("Fidelidade");
+        jMenuItemFidelidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFidelidadeActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemFidelidade);
+
+        jMenuItemProduto.setText("Produto");
+        jMenuItemProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemProdutoActionPerformed(evt);
+            }
+        });
+        jMenuRestaurante.add(jMenuItemProduto);
 
         jMenuBar.add(jMenuRestaurante);
 
@@ -226,6 +298,70 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
         jPanelConteudo.setVisible(true);
     }//GEN-LAST:event_jMenuItemFinanceiroActionPerformed
 
+    private void jMenuItemBebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBebidaActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new BebidaJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemBebidaActionPerformed
+
+    private void jMenuItemCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCardapioActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new CardapioJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCardapioActionPerformed
+
+    private void jMenuItemClassificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemClassificacaoActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new ClassificacaoJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemClassificacaoActionPerformed
+
+    private void jMenuItemComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComandaActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new ComandaJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemComandaActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new EntregaJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItemEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEstoqueActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new EstoqueJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemEstoqueActionPerformed
+
+    private void jMenuItemFidelidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFidelidadeActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new FidelidadeJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemFidelidadeActionPerformed
+
+    private void jMenuItemProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProdutoActionPerformed
+        // TODO add your handling code here:
+        jPanelConteudo.removeAll();
+        jPanelConteudo.add(new ProdutoJPanel());
+        jPanelConteudo.setVisible(false);
+        jPanelConteudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,12 +400,20 @@ public class PRestauranteJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItemBebida;
+    private javax.swing.JMenuItem jMenuItemCardapio;
+    private javax.swing.JMenuItem jMenuItemClassificacao;
     private javax.swing.JMenuItem jMenuItemCliente;
+    private javax.swing.JMenuItem jMenuItemComanda;
     private javax.swing.JMenuItem jMenuItemEndereco;
     private javax.swing.JMenuItem jMenuItemEstacionamento;
+    private javax.swing.JMenuItem jMenuItemEstoque;
+    private javax.swing.JMenuItem jMenuItemFidelidade;
     private javax.swing.JMenuItem jMenuItemFinanceiro;
     private javax.swing.JMenuItem jMenuItemFornecedora;
     private javax.swing.JMenuItem jMenuItemFuncionarios;
+    private javax.swing.JMenuItem jMenuItemProduto;
     private javax.swing.JMenuItem jMenuItemReserva;
     private javax.swing.JMenuItem jMenuItemRestaurante;
     private javax.swing.JMenuItem jMenuItemVendas;

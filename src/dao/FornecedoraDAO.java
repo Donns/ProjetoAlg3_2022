@@ -9,7 +9,6 @@ import java.util.List;
 public interface FornecedoraDAO {
     public void adicionar(Fornecedora fornecedora);
     
-    public void atualizar(Fornecedora fornecedora);
     
     public boolean remover(int id);
     
